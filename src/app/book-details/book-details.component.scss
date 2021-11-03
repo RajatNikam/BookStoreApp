@@ -1,0 +1,113 @@
+
+
+.main-container {
+    margin-left: 170px;
+    margin-right: 170px;
+}
+
+#faint {
+    opacity: 0.5;
+}
+
+.heading {
+    // margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: -25px;
+}
+
+.container1 .main img {
+    padding: 30px 40px 30px 40px;
+    border: 1px solid gray;
+}
+
+.container1 img {
+    padding: 3px 3px 3px 3px;
+    border: 1px solid gray;
+}
+
+.container2 {
+    margin-left: 100px;
+}
+
+.bookName {
+    font-size: xx-large;
+    margin-bottom: 15px;
+}
+
+.author {
+    font-size: large;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.ratingbox{
+    margin-top: -5px;
+}
+
+.ratingbox button{
+    margin-right: 10px;
+}
+
+.pricePart {
+    margin-top: 25px;
+}
+
+.currPrice {
+    font-size: x-large;
+}
+
+.actPrice{
+    font-size: 16px;
+    opacity: 0.5;
+    margin-left: 10px;
+    // margin-bottom: 15px;
+}
+
+.divider {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.heading {
+    font-size: 16px;
+    opacity: 0.5;
+}
+
+.details {
+    font-size: 13px;
+}
+
+.feedback {
+    font-size: 19px;
+}
+
+.bag {
+    margin-right: 10px;
+    background-color: #A03037;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 18px;
+}
+
+// .bag:focus {
+//     visibility: hidden;
+// }
+
+.wish {
+    margin-left: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+
+.wish #button2{
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.btn {
+    margin-top: 20px;
+}

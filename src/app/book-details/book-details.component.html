@@ -1,0 +1,91 @@
+<div class="main-container">
+
+    <div fxLayout="row" class="heading">
+        <p id="faint" routerLink="/dashboard/get-all-books" style="cursor: pointer;">
+            Home /
+        </p>
+        <p>
+            Book(01)
+        </p>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-none">
+
+        <div class="container1">
+
+            <span fxLayout="row" fxLayoutAlign=" none">
+
+                <span fxLayout="column" fxLayoutAlign=" none">
+                    <img src="/assets/Image 1.png" alt="" width="35px" height="45px">
+
+                    <img src="/assets/Image 46@2x.png" alt="" width="35px" height="45px">
+                </span>
+
+                <span fxLayout="column">
+                    <span class="main">
+                        <img src="/assets/Image 11@2x.png" alt="404" width="331px" height="383px">
+                    </span>
+                    <div fxLayout="row" fxLayoutAlign="space-between none" class="btn">
+                        <button class="bag" style="width: 100%; height: 45px;" >ADD TO BAG</button>
+
+                        <button class="wish" style="width: 100%;" fxLayout="row" fxLayoutAlign="center center">
+                            <mat-icon>favorite</mat-icon>
+                            <p id="button2">WISHLIST</p>
+                        </button>
+                    </div>
+                </span>
+            </span>
+
+        </div>
+
+        <div class="container2" fxLayout="column">
+
+            <b class="bookName">{{data.bookName}}</b>
+            <span class="author">{{data.author}}</span>
+
+            <div class='ratingbox'>
+                <button mat-raised-button style="background-color:#388E3C; border:none; color:#FFFFFF;">
+                    4.5<img src="/assets/star_white_24dp.svg" height="12px" width="12px" class="star">
+                </button>({{data.quantity}})
+            </div>
+
+            <div class="pricePart">
+                <span class="currPrice">Rs. {{data.price-data.discountPrice}} </span>
+                <span class="actPrice"> <s>Rs. {{data.price}}</s> </span>
+            </div>
+
+            <div class="divider">
+                <hr>
+            </div>
+
+            <div class="description">
+                <ul class="heading">
+                    <li> Book Detail</li>
+                </ul>
+                <p class="details">{{data.description}} <br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate nulla tenetur molestiae itaque
+                    at soluta natus error, dolore vel? Quas ipsa maxime exercitationem velit excepturi. Magnam error
+                    quidem totam perspiciatis?
+                </p>
+            </div>
+
+            <div class="divider">
+                <hr>
+            </div>
+
+            <div class="feedback">
+                <p> Customer Feedback</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+</div>

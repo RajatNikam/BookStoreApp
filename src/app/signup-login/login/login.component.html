@@ -1,0 +1,66 @@
+<div class="main">
+
+    <form [formGroup]="registerForm">
+
+        <div style="font-size: 13px">
+            <p>
+                Email id <br>
+                <mat-form-field appearance="outline" style="width: 300px;">
+                    <input matInput style="height: 20px;" formControlName="email">
+                    <mat-hint *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <mat-hint *ngIf="f.email.errors.required">Email is required</mat-hint>
+                        <mat-hint *ngIf="f.email.errors.email">Email must be a valid email address</mat-hint>
+                    </mat-hint>
+                </mat-form-field>
+            </p>
+        </div>
+
+        <div style="font-size: 13px">
+            <p>
+                Password <br>
+                <mat-form-field appearance="outline" style="width: 300px;">
+                    <input matInput [type]="hide ? 'password' : 'text'" style="height: 20px;"
+                        formControlName="password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-hint *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <mat-hint *ngIf="f.password.errors.required">Enter Password</mat-hint>
+                        <mat-hint *ngIf="f.password.errors.minlength">Password must be at least 6 characters
+                        </mat-hint>
+                    </mat-hint>
+
+                </mat-form-field>
+            </p>
+        </div>
+
+        <div>
+            <button id="login" style="width: 300px; height: 35px;" (click)="onSubmit()" routerLink="/dashboard/get-all-books">
+                Login
+            </button>
+        </div>
+
+        <br>
+
+        <div id="divider" fxLayout="row" fxLayoutAlign="space-evenly center">
+            <div id="d1"></div>
+            OR
+            <div id="d1"></div>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="space-around none">
+
+            <button id="fb" style="width: 100%; height: 35px; margin-right: 5px;">
+                Facebook
+            </button>
+
+            <button id="google" style="width: 100%; height: 35px; margin-left: 5px;">
+                Google
+            </button>
+
+        </div>
+
+    </form>
+
+</div>

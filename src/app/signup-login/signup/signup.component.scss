@@ -1,0 +1,66 @@
+.container {
+    // margin: 52px, 200px, 94px, 53px;
+
+    // padding-top: 185px;
+    
+    padding: 52px 200px 39px 53px;
+    border-radius: 20px;
+
+    // margin-left: 320px;
+    // margin-top: 185px;
+    // border: 1px solid black;
+    
+    // width: 300px;
+    // height: 391px;
+    z-index: 1;
+    box-shadow: 10px 10px 5px grey;
+    
+}
+
+.container  img {
+    padding: 52px, 200px, 94px, 53px;
+    border-radius: 120px;
+}
+
+.container .title {
+    font-size: 20px;
+    margin-top: 20px;
+    padding-left: 5px;
+}
+
+body {
+    background-color: #9D9D9D;
+    // opacity: .31;
+    z-index: 0;
+}
+
+.container2 {
+    position: relative;
+    // width: 389px;
+    min-height: 434px;
+    margin-left: -150px;
+    background-color: white;
+    z-index: 2;
+    border-radius: 8px;
+    box-shadow: 10px 10px 5px grey;
+    padding-top: 28px;
+
+    padding: 28px 70px 47px 70px;
+
+}
+
+.container2 .button button{
+    background-color: white;
+    border: none;
+    font-size: 25px;
+    font-weight: 500;
+    opacity: 0.4;
+    &:focus {
+        text-decoration: underline #A03037 7.5px;
+    }
+}
+
+.container2 .button button:focus  {
+    opacity: 1;
+}
+

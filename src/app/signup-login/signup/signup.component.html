@@ -1,0 +1,34 @@
+<body fxLayout="row" fxLayoutAlign="center center">
+
+    <div class="container" style="background-color: #f5f5f5;" fxHide.xs>
+        <div class="image1">
+            <img src="/assets/2766594.png" alt="404" width="245px" height="245px">
+        </div>
+
+        <div class="title">
+            <P>ONLINE BOOK SHOPPING</P>
+        </div>
+
+    </div>
+
+    <div class="signup">
+        <div class="container2">
+
+            <div class="button" fxLayout="row" fxLayoutAlign="space-between none">
+                <button (click)=login()>
+                    LOGIN
+                </button>
+
+                <button (click)=signup()>
+                    SIGNUP
+                </button>
+            </div>
+
+            <div>
+                <router-outlet></router-outlet>
+            </div>
+
+        </div>
+    </div>
+
+</body>

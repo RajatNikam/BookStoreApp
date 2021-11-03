@@ -1,0 +1,90 @@
+<div class="main-container">
+
+
+    <div fxLayout="row" class="heading">
+        <p id="faint" routerLink="/dashboard/get-all-books" style="cursor: pointer;">
+            Home /
+        </p>
+        <p>
+            My Cart
+        </p>
+    </div>
+
+    <mat-card class="card" id="card1" fxLayout="row"  >
+
+        <div>
+
+            <p class="name">My Cart (1)</p>
+            <br>
+            <div fxLayout="row" fxLayoutAlign=" none">
+
+                <div>
+                    <img src="/assets/Image 11.png" alt="" width="80px" height="110px">
+                </div>
+
+                <div class="details">
+                    <b class="bookName">{{data.bookName}}</b>
+                    <!-- <br> -->
+                    <p class="author">{{data.author}}</p>
+
+                    <div class="pricePart">
+                        <span class="currPrice">Rs. {{data.price-data.discountPrice}} </span>
+                        <span class="actPrice"> <s>Rs. {{data.price}} </s> </span>
+                    </div>
+
+                    <div class="addbooks" fxLayout="row" fxLayoutAlign="center center">
+                        <mat-icon class="add">remove_circle_outline</mat-icon>
+                        
+                        <span class="count">1</span>
+                        
+                        <mat-icon class="remove">add_circle_outline</mat-icon>
+    
+                        <div class="removebook">Remove</div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="second" fxLayout="column" fxLayoutAlign=" end">
+
+            <div class="sorting-class">
+                <mat-form-field appearance="outline" style="width: 300px; height: 15px;">
+                    <div fxLayout="row">
+
+                        <mat-icon class="pin">pin_drop</mat-icon>
+
+                        <select matNativeControl fxLayoutAlign="center center" style="width: 100%;">
+                            <option value="relevence">Use Current Location</option>
+                            <!-- <option value="L2H">Price: Low to High</option>
+                        <option value="H2L">Price: High to Low</option>
+                        <option value="NA">Newest Arrivals</option> -->
+                        </select>
+
+                    </div>
+                </mat-form-field>
+            </div>
+
+            <div class="btn">
+                <button>
+                    PLACE ORDER
+                </button>
+            </div>
+
+        </div>
+
+
+    </mat-card>
+
+
+    <mat-card class="card" id="card2">
+        Address Details
+    </mat-card>
+
+    <mat-card class="card" id="card3">
+        Order Summary
+    </mat-card>
+
+</div>

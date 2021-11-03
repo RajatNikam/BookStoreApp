@@ -1,0 +1,93 @@
+.sorting-class{
+    width: 130px;
+    height: 10px;
+    // padding-right: 170px;
+    padding-top: 0px;
+  }
+  
+  .head1{
+    padding-top: 40px;
+  }
+  .book-con{
+    background-color: #F5F5F5;
+    margin-left: 172px;
+    margin-top: 35px;
+    width: 223px;
+    height: 172px;
+  }
+  .details{
+    background-color:#FFFF;
+   
+    border       : 1px solid;
+    border-color : gainsboro;
+    height: 103px;
+    width: 223px;
+    position: relative;
+    margin-top: 0px;
+    margin-left: 172px;
+  
+  }
+  .name-container{
+    width: 130px;
+    height: 19px;
+    margin-top: 0px;
+    margin-left: -55px;
+    font-size: 13px;
+  }
+  .authorName{
+    width: 63px;
+    height: 13px;
+    margin-top: -10px;    
+    margin-left: -125px;
+    font-size: 10px;
+  
+  }
+  // .ratingbox{
+  //   height: 16px;
+  //   width: 33px;
+  // }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  button {
+    // width: 330px;
+    height: 25px;
+    margin-left: 30px;
+    // margin-top: 15px;
+  }
+  
+  #items {
+    font-size: 15px;
+    opacity: 0.5;
+  }
+  
+  /* Pagination links */
+  .pagination a {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+  }
+  
+  .pagination{
+    margin-left: 20vw;
+  }
+  
+  /* Style the active/current link */
+  .pagination a.active {
+    background-color: #8F2B2F;
+    color: white;
+  }
+  
+  /* Add a grey background color on mouse-over */
+  .pagination a:hover:not(.active) {background-color: #ddd;} 
+  
+  .pagination mat-icon{
+    color: #8F2B2F;
+  }
+  
