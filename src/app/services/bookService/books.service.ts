@@ -17,7 +17,7 @@ export class BooksService {
     let httpAuthOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': this.token
+        // 'Authorization': this.token
       })
     };
     // console.log(httpAuthOptions);

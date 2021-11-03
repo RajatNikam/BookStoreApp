@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { GetAllBooksComponent } from './get-all-books/get-all-books.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { CartComponent } from './cart/cart.component';
+import { AuthGuardGuard } from './AuthGuard/auth-guard.guard';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {
     path: "", component: SignupComponent,
     children: [
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent }
     ],
@@ -23,8 +25,9 @@ const routes: Routes = [
   { path: 'get-all-books', component: GetAllBooksComponent },
 
   {
-    path: 'dashboard', component: DashboardComponent,
+    path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardGuard],
     children: [
+      { path: '', redirectTo: 'get-all-books', pathMatch: 'full' },
       { path: 'get-all-books', component: GetAllBooksComponent },
       { path: 'book-details', component: BookDetailsComponent },
       { path: 'cart', component: CartComponent },

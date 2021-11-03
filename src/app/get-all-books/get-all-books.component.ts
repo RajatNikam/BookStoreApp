@@ -13,6 +13,7 @@ export class GetAllBooksComponent implements OnInit {
   token: any;
   data: any;
   id: any;
+  bookcount: any;
 
   constructor(private bookServices: BooksService, private router: Router) { }
 
@@ -29,6 +30,7 @@ export class GetAllBooksComponent implements OnInit {
         console.log(response.result)
 
         this.booksArray = response['result'];
+        this.bookcount = response.result.length;
 
         console.log("getBooksArray", this.booksArray);
 

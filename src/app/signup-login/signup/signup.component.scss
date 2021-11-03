@@ -54,13 +54,25 @@ body {
     border: none;
     font-size: 25px;
     font-weight: 500;
-    opacity: 0.4;
-    &:focus {
-        text-decoration: underline #A03037 7.5px;
-    }
+    // opacity: 0.4;
+    // &:focus {
+    //     text-decoration: underline #A03037 7.5px;
+    // }
 }
 
-.container2 .button button:focus  {
+// .container2 .button button:focus  {
+//     opacity: 1;
+// }
+
+.btn {
     opacity: 1;
+    background-color: white;
+    border: none;
+    font-size: 25px;
+    font-weight: 500;
+    text-decoration: underline #A03037 7.5px;
 }
 
+.underline{
+    opacity: 0.4;
+}

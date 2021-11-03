@@ -15,11 +15,11 @@
         <div class="container2">
 
             <div class="button" fxLayout="row" fxLayoutAlign="space-between none">
-                <button (click)=login()>
+                <button (click)=login() [ngClass]="{'btn':signupShown===true, 'underline':signupShown===false}">
                     LOGIN
                 </button>
 
-                <button (click)=signup()>
+                <button (click)=signup() [ngClass]="{'btn':signupShown===false, 'underline':signupShown===true}">
                     SIGNUP
                 </button>
             </div>

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+  signupShown: boolean = true;
 
   constructor(private router: Router) { }
 
@@ -14,10 +15,12 @@ export class SignupComponent implements OnInit {
   }
 
   login() {
+    this.signupShown = true;
     this.router.navigateByUrl('login');
   }
 
   signup() {
+    this.signupShown = false;
     this.router.navigateByUrl('register');
   }
 

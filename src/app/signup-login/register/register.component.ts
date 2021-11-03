@@ -44,6 +44,8 @@ export class RegisterComponent implements OnInit {
     }
     this.userService.registrationService(payload).subscribe((response: any) => {
       console.log("response", response);
+    console.log("name", response.result.fullName, response.result._id);
+
     });
 
 

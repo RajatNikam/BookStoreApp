@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/userservice/user.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   registerForm!: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -35,9 +36,13 @@ export class LoginComponent implements OnInit {
     }
     this.userService.loginService(payload).subscribe((response: any) => {
       console.log("response", response);
-      localStorage.setItem('token', response.id)
-      console.log('token', response.id);
-      
+      localStorage.setItem('token', response.result.accessToken)
+      // localStorage.setItem('token', accessToken)
+
+      console.log('token', response.result.accessToken);
+    this.router.navigateByUrl('/dashboard')
+
+
     });
 
     // stop here if form is invalid

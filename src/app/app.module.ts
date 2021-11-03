@@ -34,6 +34,8 @@ import { GetAllBooksComponent } from './get-all-books/get-all-books.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { CartComponent } from './cart/cart.component';
 
+import { AuthguardService } from './services/AuthGuardService/authguard.service';
+
 
 
 @NgModule({
@@ -71,7 +73,9 @@ import { CartComponent } from './cart/cart.component';
     MatTooltipModule,
     MatDividerModule,
   ],
-  providers: [  ],
+  providers: [ 
+    AuthguardService,
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
