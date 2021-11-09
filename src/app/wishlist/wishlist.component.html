@@ -1,0 +1,34 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+    <div fxLayout="column" fxLayoutAlign="start start">
+        <div fxLayout="row">
+            <p class="head0">Home /</p>
+            <p class="head1">My Whishlist</p>
+        </div>
+ 
+        <mat-card class="card">
+            <mat-card-header class="cardheader">
+                <mat-card-title class="cardtitle">My Wishlist ({{whislistitemscount}})</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="cardcontent" *ngFor="let data of wishlistitems" fxLayout="row" fxLayoutGap="38px">
+                <div>
+                    <img class="book" src="/assets/Image 11@2x.png">
+                </div>
+                <div>
+                    <p class="bookname">{{data.product_id.bookName}}</p>
+                    <p class="author">by {{data.product_id.author}}</p>
+                    <p class="actualprice" *ngIf="data.product_id.discountPrice==0">Rs. {{data.product_id.price}}</p>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <p class="actualprice" *ngIf="data.product_id.discountPrice>0">Rs.
+                            {{data.product_id.price-data.product_id.discountPrice}}</p>
+                        <p class="discountPrice" *ngIf="data.product_id.discountPrice>0"><del>Rs. {{data.product_id.price}}</del></p>
+                    </div>
+                </div>
+                <div fxFlex fxLayoutAlign="end">
+                    <button (click)="deletewishlistitem(data)" class="delete" mat-icon-button>
+                      <mat-icon class="material-icons-outlined" style="opacity: 0.5;">delete</mat-icon>
+                    </button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+ </div>

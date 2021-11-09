@@ -8,13 +8,31 @@
   .head1{
     padding-top: 40px;
   }
+  
+  // -------------------------------------------------------
   .book-con{
     background-color: #F5F5F5;
-    margin-left: 172px;
+    // margin-left: 172px;
     margin-top: 35px;
     width: 223px;
     height: 172px;
   }
+
+  .regular-book-con {
+    margin-left: 172px;
+  }
+
+  .medium-book-con {
+    margin-left: 100px;
+    // margin-right: 40px;
+  }
+
+  .small-book{
+    margin-left: 70px;
+
+  }
+
+  // -------------------------------------------------------
   .details{
     background-color:#FFFF;
    
@@ -24,9 +42,23 @@
     width: 223px;
     position: relative;
     margin-top: 0px;
-    margin-left: 172px;
-  
+    // margin-left: 172px;
+
   }
+
+  .regular-details {
+    margin-left: 172px;
+  }
+
+  .medium-details {
+
+  }
+
+  .small-details {
+
+  }
+
+  // -------------------------------------------------------
   .name-container{
     width: 130px;
     height: 19px;
@@ -34,29 +66,65 @@
     margin-left: -55px;
     font-size: 13px;
   }
+
+  .regular-name-container {
+    margin-left: -55px;
+  }
+
+  .medium-name-container {
+    margin-left: -55px;
+  }
+
+  .small-name-container {
+    margin-left: -55px;
+
+  }
+
+  // -------------------------------------------------------
   .authorName{
     width: 63px;
     height: 13px;
     margin-top: -10px;    
     margin-left: -125px;
     font-size: 10px;
-  
   }
-  // .ratingbox{
-  //   height: 16px;
-  //   width: 33px;
-  // }
-  
-  .example-spacer {
-    flex: 1 1 auto;
+
+  .regular-authorName {
+    margin-left: -125px;
   }
+
+  .medium-authorName {
+    margin-left: -125px;
+  }
+
+  .small-authorName {
+    margin-left: -125px;
+
+  }
+
+  // -------------------------------------------------------
   
   button {
     // width: 330px;
     height: 25px;
-    margin-left: 30px;
+    margin-left: 29px;
     // margin-top: 15px;
   }
+
+  .regular-button {
+    // margin-left: 30px;
+
+  }
+
+  .medium {
+
+  }
+
+  .small {
+
+  }
+  // -------------------------------------------------------
+
   
   #items {
     font-size: 15px;
@@ -91,3 +159,6 @@
     color: #8F2B2F;
   }
   
+  .example-spacer {
+    flex: 1 1 auto;
+  }

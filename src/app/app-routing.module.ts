@@ -8,6 +8,9 @@ import { GetAllBooksComponent } from './get-all-books/get-all-books.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { CartComponent } from './cart/cart.component';
 import { AuthGuardGuard } from './AuthGuard/auth-guard.guard';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { OrderplacedComponent } from './orderplaced/orderplaced.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const routes: Routes = [
@@ -31,6 +34,9 @@ const routes: Routes = [
       { path: 'get-all-books', component: GetAllBooksComponent },
       { path: 'book-details', component: BookDetailsComponent },
       { path: 'cart', component: CartComponent },
+      { path: 'wishlist', component: WishlistComponent },
+      { path: 'orderplaced', component: OrderplacedComponent },
+      { path: 'profile', component: ProfileComponent },
     ],
   },
 ];

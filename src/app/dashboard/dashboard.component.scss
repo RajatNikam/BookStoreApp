@@ -6,6 +6,11 @@
     flex: 1 1 auto;
   }
 
+mat-toolbar {
+    background: #8F2B2F;
+    // width: 100vw;
+}  
+
 #searchbar{
     cursor: pointer;
     background-color: #f1f3f4;
@@ -60,6 +65,14 @@
     padding-left: 35px;
 }
 
+.container2 {
+    border-left: 2px solid #8F2B2F;
+    // border-right: 2px solid #8F2B2F;
+    // padding: 11px 30px 11px 30px;
+    padding-right: 35px;
+    padding-left: 35px;
+}
+
 .profile-icon {
     position: relative;
     margin-top: 15px;
@@ -81,4 +94,51 @@
     color: white;
     padding-left: 200px;
     margin-top: 100px;
+}
+
+#logout {
+    // padding: 5px 5px 5px 5px;
+    border: 2px solid #A03037;
+    margin-left: 45px;
+    margin-top: 5px;
+}
+
+// respondive dashboard
+
+.regular {
+    position: sticky;
+    background-color: #A03037; 
+    color: white; 
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+// style="background-color: #A03037; color: white; padding-left: 150px; padding-right: 150px;"
+
+.small {
+    position: sticky;
+    background-color: #A03037; 
+    color: white; 
+    padding-left: 5px;
+    padding-right: 0px;
+    background-size: 100%;
+}
+
+.medium {
+    position: sticky;
+    background-color: #A03037; 
+    color: white; 
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.iconing {
+     // border-left: 2px solid #8F2B2F;
+    //  border-right: 2px solid #8F2B2F;
+     // padding: 11px 30px 11px 30px;
+     padding-right: 15px;
+     padding-left: 5px;
+    //  padding-bottom: -15px;
+    background-color: #A03037; 
+
 }

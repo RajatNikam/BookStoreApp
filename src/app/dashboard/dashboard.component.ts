@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,14 +7,22 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  matBadgeHidden: boolean= true;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  toProductPage(Book: any) {
-
+  onWishlist() {
+    this.router.navigateByUrl('/dashboard/wishlist');
   }
 
+  hide() {
+  this.matBadgeHidden= true;
+  }
+
+  profileButton() {
+    this.router.navigateByUrl('/dashboard/profile');
+  }
 }

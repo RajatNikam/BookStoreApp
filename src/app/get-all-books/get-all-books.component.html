@@ -1,14 +1,17 @@
-<div class="main-container" style="margin-right: 200px;">
+<div class="main-container" [ngStyle.gt-sm]="{'margin-right': '200px;'}">
     <div fxLayout="row" fxLayoutAlign="space-between center">
         <div class="head1">
-            <span style="width: 73px; height: 33px; font-size: 20px; margin-left: 174px;" fxLayout="row"
-                fxLayoutAlign=" none">Books <p id="items"> ({{bookcount}}_items)</p> </span>
+            <span [ngStyle.gt-sm]="{'width': '73px;', 'height': '33px;', 'font-size': '20px;', 'margin-left': '174px;'}"
+                fxLayout="row" fxLayoutAlign=" none" [ngStyle.sm]="{'margin-left':'30px'}"
+                [ngStyle.xs]="{'margin-left':'10px'}">Books <p id="items"> ({{bookcount}}_items)</p> </span>
         </div>
 
         <div class="example-spacer"></div>
 
-        <div class="sorting-class">
-            <mat-form-field appearance="outline" style="width: 150px; height: 20px;">
+        <div class="sorting-class" [ngStyle.sm]="{'margin-right':'30px'}" [ngStyle.xs]="{'margin-right':'20px'}"
+            style="margin-top: -25px;">
+            <mat-form-field appearance="outline" [ngStyle.gt-xs]="{'width': '150px;', 'height': '20px;'}"
+                [ngStyle.xs]="{'width':'145px', 'height':'2px' }">
                 <select matNativeControl fxLayoutAlign="center center" style="width: 100%;">
                     <option value="relevence">Sort by relevence</option>
                     <option value="L2H">Price: Low to High</option>
@@ -21,21 +24,24 @@
 
     <div fxLayout="row wrap" style="width:100%;" fxLayoutAlign="start center " fxLayoutGap="-100px">
 
-        <div *ngFor="let book of booksArray" fxLayoutGap="5px">
+        <div *ngFor="let book of booksArray" fxLayoutGap.md="40px" fxLayoutGap.sm="100px" fxLayoutGap.xs="60px"
+            [ngClass.sm]="'medium-book-con'" [ngClass.xs]="'small-book'">
 
 
-            <div class="book-con" fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap="5px"
+            <div class="book-con" [ngClass.gt-sm]="'regular-book-con'" [ngClass.xs]="'small-book-con'" fxLayout="column"
+                fxLayoutAlign="space-evenly center" fxLayoutGap="5px"
                 style=" border: 1px solid gray; border-bottom: 0px;">
                 <div class="img">
                     <img src="/assets/Image 11.png" width="105px" height="135px" alt="" (click)="quickView(book)">
                 </div>
             </div>
-            <div class="details" fxLayout="column" fxLayoutAlign="space-evenly center"
-                style=" border: 1px solid gray; border-top: 0px;">
-                <b class="name-container">
+            <div class="details" [ngClass.gt-sm]="'regular-details'" fxLayout="column"
+                fxLayoutAlign="space-evenly center" style=" border: 1px solid gray; border-top: 0px;">
+                <b class="name-container" [ngClass.xs]="'small-name-container'" [ngClass.sm]="'medium-name-container'">
                     {{book.bookName}}
                 </b>
-                <mat-card-subtitle class="authorName">
+                <mat-card-subtitle class="authorName" [ngClass.xs]="'small-authorName'"
+                    [ngClass.sm]="'medium-authorName'">
                     by {{book.author}}
                 </mat-card-subtitle>
 
@@ -56,7 +62,7 @@
         </div>
     </div>
 
-    <div class="pagination">
+    <div class="pagination" fxHide.lt-md>
         <a href="#">
             <mat-icon>arrow_circle_left</mat-icon>
         </a>

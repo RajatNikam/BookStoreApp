@@ -10,6 +10,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip'; 
 import {MatDividerModule} from '@angular/material/divider';
+import {MatRadioModule} from '@angular/material/radio'; 
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +26,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatOptionModule } from '@angular/material/core'; 
+import {MatBadgeModule} from '@angular/material/badge'; 
 
 import { SignupComponent } from './signup-login/signup/signup.component';
 import { LoginComponent } from './signup-login/login/login.component';
@@ -35,6 +38,9 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { CartComponent } from './cart/cart.component';
 
 import { AuthguardService } from './services/AuthGuardService/authguard.service';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { OrderplacedComponent } from './orderplaced/orderplaced.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -48,6 +54,9 @@ import { AuthguardService } from './services/AuthGuardService/authguard.service'
     GetAllBooksComponent,
     BookDetailsComponent,
     CartComponent,
+    WishlistComponent,
+    OrderplacedComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +81,9 @@ import { AuthguardService } from './services/AuthGuardService/authguard.service'
     MatDialogModule,
     MatTooltipModule,
     MatDividerModule,
+    MatOptionModule,
+    MatBadgeModule,
+    MatRadioModule
   ],
   providers: [ 
     AuthguardService,

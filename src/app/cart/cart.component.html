@@ -1,90 +1,216 @@
-<div class="main-container">
+<div fxLayout="column" fxLayoutAlign="center center">
+    <div class="container" fxLayout="column" fxLayoutAlign="start start">
+        <div fxLayout="row">
+            <p class="head0">Home /</p>
+            <p class="head1">Book(01)</p>
+        </div>
+
+        <mat-accordion multi>
+            <mat-expansion-panel hideToggle [ngClass]="'panel'" [ngClass.xs]="'panelxs'" [expanded]="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="paneltitle">
+                        My cart ({{count}})
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="50px" fxLayout.xs="column"
+                    *ngFor="let data of cartitems" class="bookdata">
+                    <div fxLayout="column" fxLayoutGap="15px">
+                        <img class="book" src="/assets/Image 11.png">
+                    </div>
+                    <div>
+                        <p class="bookname">{{data.product_id.bookName}}</p>
+                        <p class="author">by {{data.product_id.author}}</p>
+                        <p class="actualprice" *ngIf="data.product_id.discountPrice==0">Rs. {{data.product_id.price}}
+                        </p>
+                        <div fxLayout="row" fxLayoutGap="10px">
+                            <p class="actualprice" *ngIf="data.product_id.discountPrice>0">Rs.
+                                {{data.product_id.price-data.product_id.discountPrice}}</p>
+                            <p class="discountPrice" *ngIf="data.product_id.discountPrice>0"><del>Rs.
+                                    {{data.product_id.price}}</del></p>
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign="space-between start">
+                            <div fxLayout="row">
+                                <button mat-icon-button (click)="countdecrease(data)">
+                                    <mat-icon class="material-icons-outlined">remove_circle_outline</mat-icon>
+                                </button>
+                                <p class="count">{{data.quantityToBuy}}</p>
+                                <button mat-icon-button (click)="countincrease(data)">
+                                    <mat-icon class="material-icons-outlined">add_circle_outline</mat-icon>
+                                </button>
+                            </div>
+                            <button mat-button (click)="removecartitem(data)">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="end end">
+                    <button mat-flat-button color="primary" class="placeorder" *ngIf="step1button"
+                        (click)="setStep(1)">Place
+                        order</button>
+                </div>
+            </mat-expansion-panel>
+
+            <!-- =============================================================================================================== -->
+
+            <mat-expansion-panel hideToggle class="panel" [expanded]="step1" [ngClass.xs]="'panelxs'">
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="paneltitle">
+                        Customer Details
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <!-- <form [formGroup]="userDetails">
+                    <div fxLayout="column" fxLayoutAlign="start start">
+
+                        <div fxLayout="row" fxLayoutAlign="start start" fxLayout.xs="column" fxLayoutGap="15px">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Full Name</mat-label>
+                                <mat-error>Enter Full Name</mat-error>
+                                <input formControlName="fullName" matInput required [value]="fullname">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>Mobile Number</mat-label>
+                                <mat-error>Enter a Mobile Number</mat-error>
+                                <input formControlName="phone" matInput required>
+                            </mat-form-field>
+                        </div> -->
+
+                <!-- <div class="addresstype">
+                            <mat-form-field appearance="outline" [ngStyle.gt-xs]="{'width': '415px;'}">
+                                <mat-label>Address</mat-label>
+                                <mat-error>Enter Address</mat-error>
+                                <input formControlName="fullAddress" matInput required>
+                            </mat-form-field>
+                        </div>
+
+                        <div fxLayout="row" fxLayoutAlign="start start" fxLayout.xs="column" fxLayoutGap="15px">
+                            <mat-form-field appearance="outline">
+                                <mat-label> City/Town</mat-label>
+                                <mat-error>Enter City/Town</mat-error>
+                                <input formControlName="city" matInput required>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>State</mat-label>
+                                <mat-error>Enter State</mat-error>
+                                <input formControlName="state" matInput required>
+                            </mat-form-field>
+                        </div> -->
+                <!-- </div>
+                </form> -->
 
 
-    <div fxLayout="row" class="heading">
-        <p id="faint" routerLink="/dashboard/get-all-books" style="cursor: pointer;">
-            Home /
-        </p>
-        <p>
-            My Cart
-        </p>
+
+
+
+                <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Full Name</mat-label>
+                        <mat-error>Enter Full Name</mat-error>
+                        <input matInput required [value]="fullname">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Mobile Number</mat-label>
+                        <mat-error>Enter a Mobile Number</mat-error>
+                        <input matInput required [value]="mobilenumber">
+                    </mat-form-field>
+                </div>
+                <mat-radio-group aria-label="Select an option" [(ngModel)]="addressType">
+                    <mat-radio-button class="radiobutton" [formGroup]="alladdress"
+                        *ngFor="let userFormGroup of alladdress.controls" [value]="userFormGroup.value.addressType">
+
+                        <form [formGroup]="userFormGroup">
+                            <div fxLayout="row">
+                                <p class="addresstype">{{userFormGroup.value.addressType}}</p>
+                                <button class="editbutton" mat-button *ngIf="disabled" (click)="enable()">Edit</button>
+                            </div>
+                            <mat-form-field appearance="outline" style="margin-top: 15px;">
+                                <mat-label>Address</mat-label>
+                                <mat-error>Enter Address</mat-error>
+                                <input formControlName="address" matInput required>
+                            </mat-form-field>
+                            <div fxLayout="row" fxLayoutGap="10px">
+                                <mat-form-field appearance="outline" style="margin-top: 15px;">
+                                    <mat-label>city/town</mat-label>
+                                    <mat-error>Enter a city/town</mat-error>
+                                    <input formControlName="city" matInput required>
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline">
+                                    <mat-label>State</mat-label>
+                                    <mat-error>Enter a state</mat-error>
+                                    <input formControlName="state" matInput required>
+                                </mat-form-field>
+                            </div>
+                        </form>
+                    </mat-radio-button>
+                </mat-radio-group>
+
+
+
+                <div fxLayout="row" fxLayoutAlign="end end">
+                    <button mat-flat-button color="primary" class="placeorder" (click)="setStep(2)"
+                        *ngIf="step2button && disabled">Continue</button>
+                    <button mat-flat-button color="primary" class="placeorder" (click)="setStep(2);updateadress();"
+                        *ngIf="step2button && !disabled">Update address & Continue</button>
+                </div>
+            </mat-expansion-panel>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- <div fxLayout="row" fxLayoutAlign="end end">
+                <button mat-flat-button color="primary" class="placeorder" (click)="setStep(2)"
+                    *ngIf="step2button && disabled">Continue</button>
+            </div>
+            </mat-expansion-panel> -->
+
+            <!-- ========================================================================================================================== -->
+
+            <mat-expansion-panel hideToggle class="panel" [expanded]="step2" [ngClass.xs]="'panelxs'">
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="paneltitle">
+                        Order summery
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="50px" fxLayout.lt-md="column"
+                    *ngFor="let data of cartitems" class="bookdata">
+                    <div fxLayout="column" fxLayoutGap="15px">
+                        <img class="book" src="/assets/Image 11@2x.png">
+                    </div>
+                    <div>
+                        <p class="bookname">{{data.product_id.bookName}}</p>
+                        <p class="author">by {{data.product_id.author}}</p>
+                        <p class="actualprice" *ngIf="data.product_id.discountPrice==0">Rs. {{data.product_id.price}}
+                        </p>
+                        <div fxLayout="row" fxLayoutGap="10px">
+                            <p class="actualprice" *ngIf="data.product_id.discountPrice>0">Rs.
+                                {{data.product_id.price-data.product_id.discountPrice}}</p>
+                            <p class="discountPrice" *ngIf="data.product_id.discountPrice>0"><del>Rs.
+                                    {{data.product_id.price}}</del>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="end end">
+                    <button (click)="checkout()" mat-flat-button color="primary" class="placeorder">Checkout</button>
+                </div>
+            </mat-expansion-panel>
+
+        </mat-accordion>
+
     </div>
-
-    <mat-card class="card" id="card1" fxLayout="row"  >
-
-        <div>
-
-            <p class="name">My Cart (1)</p>
-            <br>
-            <div fxLayout="row" fxLayoutAlign=" none">
-
-                <div>
-                    <img src="/assets/Image 11.png" alt="" width="80px" height="110px">
-                </div>
-
-                <div class="details">
-                    <b class="bookName">{{data.bookName}}</b>
-                    <!-- <br> -->
-                    <p class="author">{{data.author}}</p>
-
-                    <div class="pricePart">
-                        <span class="currPrice">Rs. {{data.price-data.discountPrice}} </span>
-                        <span class="actPrice"> <s>Rs. {{data.price}} </s> </span>
-                    </div>
-
-                    <div class="addbooks" fxLayout="row" fxLayoutAlign="center center">
-                        <mat-icon class="add">remove_circle_outline</mat-icon>
-                        
-                        <span class="count">1</span>
-                        
-                        <mat-icon class="remove">add_circle_outline</mat-icon>
-    
-                        <div class="removebook">Remove</div>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="second" fxLayout="column" fxLayoutAlign=" end">
-
-            <div class="sorting-class">
-                <mat-form-field appearance="outline" style="width: 300px; height: 15px;">
-                    <div fxLayout="row">
-
-                        <mat-icon class="pin">pin_drop</mat-icon>
-
-                        <select matNativeControl fxLayoutAlign="center center" style="width: 100%;">
-                            <option value="relevence">Use Current Location</option>
-                            <!-- <option value="L2H">Price: Low to High</option>
-                        <option value="H2L">Price: High to Low</option>
-                        <option value="NA">Newest Arrivals</option> -->
-                        </select>
-
-                    </div>
-                </mat-form-field>
-            </div>
-
-            <div class="btn">
-                <button>
-                    PLACE ORDER
-                </button>
-            </div>
-
-        </div>
-
-
-    </mat-card>
-
-
-    <mat-card class="card" id="card2">
-        Address Details
-    </mat-card>
-
-    <mat-card class="card" id="card3">
-        Order Summary
-    </mat-card>
-
 </div>

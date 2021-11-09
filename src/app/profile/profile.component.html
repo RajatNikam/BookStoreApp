@@ -1,0 +1,39 @@
+<div style="margin-top: 80px; margin-left: 40px;">
+    <div>
+        <button mat-button style=" padding-right: 0px; min-width: 50px;" (click)='homeButton()'
+            class="head0">Home</button>
+        <p class="head1">/ Profile</p>
+    </div>
+
+    <div class="personal_info" fxLayout="column" fxLayoutAlign="space-around">
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <div style="font-size: 18px; font-weight: 500; letter-spacing: 0.04em;">
+                Personal Details
+            </div>
+            <div>
+                <button mat-button class="edit_button" *ngIf="edit" (click)="onEdit()">Edit</button>
+                <button mat-button class="edit_button" *ngIf="!edit" (click)="onCancel()">Cancel</button>
+            </div>
+            <div style="margin-left: 290px;" *ngIf="!edit">
+                <button mat-raised-button color='primary' class="save_button">Save</button>
+            </div>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="space-around">
+            <label for="fullName" style="padding-top: 15px;">Full Name</label>
+            <input id="fullName" type="text" style="height: 25px;" value="{{fullName}}" />
+
+            <label for="email" style="padding-top: 15px;">Email Id</label>
+            <input id="email" type="email" style="height: 25px;" value="{{email}}" />
+
+
+            <label for="password" style="padding-top: 15px;">Password</label>
+            <input id="email" type="text" style="height: 25px;" value="**********" />
+
+            <label for="mobileNumber" style="padding-top: 15px;">Mobile Number</label>
+            <input id="mobileNumber" type="text" style="height: 25px;" value="{{number}}" />
+        </div>
+
+
+    </div>
+
+</div>
