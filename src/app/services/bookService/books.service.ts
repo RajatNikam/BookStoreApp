@@ -141,22 +141,9 @@ export class BooksService {
     return this.http.PostService("/${data.product_id}", data, false, tokenOption);
   }
 
-
-
-  /************Feed-Back*****POST********/
-  feedBack(review: any, data: any) {
-    this.token = localStorage.getItem('token');
-    let options = {
-      headers: new HttpHeaders({
-        'x-access-token': this.token,
-        'Content-Type': 'application/json'
-      })
-    }
-    return this.http.PostService("/bookstore_user/add/feedback/" + data, review, true, options);
-  }
-
   /************Feed-Back*******GET***********/
-  getfeedBack(id: any) {
+  getfeedBack(data: any) {
+    this.token = localStorage.getItem('token')
 
     let httpAuthOptions = {
       headers: new HttpHeaders({
@@ -166,9 +153,11 @@ export class BooksService {
     }
     console.log(httpAuthOptions);
 
-    return this.http.getService("/bookstore_user/get/feedback/" + id, true, httpAuthOptions);
+    return this.http.getService(`/bookstore_user/get/feedback/${data.product_id}`, true, httpAuthOptions);
 
   }
+
+  /************Feed-Back*******post***********/
 
   addFeedbackService(data: any) {
 
@@ -182,6 +171,18 @@ export class BooksService {
     console.log('data', data.product_id);
     
     return this.http.PostService(`/bookstore_user/add/feedback/${data.product_id}`, data, true, options)
+  }
+
+  customerDetailsService(data:any){
+    this.token = localStorage.getItem('token')
+    let options={
+      headers : new HttpHeaders({
+        'Content-type' : 'application/json',
+        'x-access-token' : this.token
+      })
+    }
+    return this.http.Put('/bookstore_user/edit_user',data,options)
+
   }
 
 }

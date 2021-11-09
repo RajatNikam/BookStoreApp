@@ -43,172 +43,116 @@
                     </div>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="end end">
-                    <button mat-flat-button color="primary" class="placeorder" *ngIf="step1button"
-                        (click)="setStep(1)">Place
+                    <button mat-flat-button color="primary" class="placeorder" *ngIf="displayButton"
+                        (click)="showadderss()">Place
                         order</button>
+                    <div *ngIf="!displayButton"></div>
                 </div>
             </mat-expansion-panel>
 
-            <!-- =============================================================================================================== -->
+            <div class="customer-details" *ngIf="!displayaddresss">
 
-            <mat-expansion-panel hideToggle class="panel" [expanded]="step1" [ngClass.xs]="'panelxs'">
-                <mat-expansion-panel-header>
-                    <mat-panel-title class="paneltitle">
-                        Customer Details
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <!-- <form [formGroup]="userDetails">
-                    <div fxLayout="column" fxLayoutAlign="start start">
+                <mat-expansion-panel hideToggle class="panel" [ngClass.xs]="'panelxs'">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title class="paneltitle">
+                            Customer Details
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <form [formGroup]="customerDetailsForm">
+                        <div fxLayout="column" fxLayoutAlign="start start">
 
-                        <div fxLayout="row" fxLayoutAlign="start start" fxLayout.xs="column" fxLayoutGap="15px">
-                            <mat-form-field appearance="outline">
-                                <mat-label>Full Name</mat-label>
-                                <mat-error>Enter Full Name</mat-error>
-                                <input formControlName="fullName" matInput required [value]="fullname">
-                            </mat-form-field>
+                            <div fxLayout="row" fxLayoutAlign="start start" fxLayout.xs="column" fxLayoutGap="15px">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Full Name</mat-label>
+                                    <mat-error>Enter Full Name</mat-error>
+                                    <input formControlName="fullName" matInput required>
+                                </mat-form-field>
 
-                            <mat-form-field appearance="outline">
-                                <mat-label>Mobile Number</mat-label>
-                                <mat-error>Enter a Mobile Number</mat-error>
-                                <input formControlName="phone" matInput required>
-                            </mat-form-field>
-                        </div> -->
-
-                <!-- <div class="addresstype">
-                            <mat-form-field appearance="outline" [ngStyle.gt-xs]="{'width': '415px;'}">
-                                <mat-label>Address</mat-label>
-                                <mat-error>Enter Address</mat-error>
-                                <input formControlName="fullAddress" matInput required>
-                            </mat-form-field>
-                        </div>
-
-                        <div fxLayout="row" fxLayoutAlign="start start" fxLayout.xs="column" fxLayoutGap="15px">
-                            <mat-form-field appearance="outline">
-                                <mat-label> City/Town</mat-label>
-                                <mat-error>Enter City/Town</mat-error>
-                                <input formControlName="city" matInput required>
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline">
-                                <mat-label>State</mat-label>
-                                <mat-error>Enter State</mat-error>
-                                <input formControlName="state" matInput required>
-                            </mat-form-field>
-                        </div> -->
-                <!-- </div>
-                </form> -->
-
-
-
-
-
-                <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Full Name</mat-label>
-                        <mat-error>Enter Full Name</mat-error>
-                        <input matInput required [value]="fullname">
-                    </mat-form-field>
-
-                    <mat-form-field appearance="outline">
-                        <mat-label>Mobile Number</mat-label>
-                        <mat-error>Enter a Mobile Number</mat-error>
-                        <input matInput required [value]="mobilenumber">
-                    </mat-form-field>
-                </div>
-                <mat-radio-group aria-label="Select an option" [(ngModel)]="addressType">
-                    <mat-radio-button class="radiobutton" [formGroup]="alladdress"
-                        *ngFor="let userFormGroup of alladdress.controls" [value]="userFormGroup.value.addressType">
-
-                        <form [formGroup]="userFormGroup">
-                            <div fxLayout="row">
-                                <p class="addresstype">{{userFormGroup.value.addressType}}</p>
-                                <button class="editbutton" mat-button *ngIf="disabled" (click)="enable()">Edit</button>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Mobile Number</mat-label>
+                                    <mat-error>Enter a Mobile Number</mat-error>
+                                    <input formControlName="phone" matInput required>
+                                </mat-form-field>
                             </div>
-                            <mat-form-field appearance="outline" style="margin-top: 15px;">
-                                <mat-label>Address</mat-label>
-                                <mat-error>Enter Address</mat-error>
-                                <input formControlName="address" matInput required>
-                            </mat-form-field>
-                            <div fxLayout="row" fxLayoutGap="10px">
-                                <mat-form-field appearance="outline" style="margin-top: 15px;">
-                                    <mat-label>city/town</mat-label>
-                                    <mat-error>Enter a city/town</mat-error>
+
+                            <div class="addresstype">
+                                <mat-form-field appearance="outline" [ngStyle.gt-xs]="{'width': '415px;'}">
+                                    <mat-label>Address</mat-label>
+                                    <mat-error>Enter Address</mat-error>
+                                    <input formControlName="fullAddress" matInput required>
+                                </mat-form-field>
+                            </div>
+
+                            <div fxLayout="row" fxLayoutAlign="start start" fxLayout.xs="column" fxLayoutGap="15px">
+                                <mat-form-field appearance="outline">
+                                    <mat-label> City/Town</mat-label>
+                                    <mat-error>Enter City/Town</mat-error>
                                     <input formControlName="city" matInput required>
                                 </mat-form-field>
 
                                 <mat-form-field appearance="outline">
                                     <mat-label>State</mat-label>
-                                    <mat-error>Enter a state</mat-error>
+                                    <mat-error>Enter State</mat-error>
                                     <input formControlName="state" matInput required>
                                 </mat-form-field>
                             </div>
-                        </form>
-                    </mat-radio-button>
-                </mat-radio-group>
 
+                            <div fxLayout="column" fxLayoutGap=10px style="margin-left: 102px;">
+                                <div>
+                                    type
+                                </div>
+                                <div fxLayout="row" fxLayout.xs="column" fxLayoutGap=20px>
+                                    <mat-radio-group aria-label="Select an option" formControlName="addressType">
+                                        <mat-radio-button value="Home">Home</mat-radio-button>
+                                        <mat-radio-button style="margin-left: 70px;" value="Office">Office
+                                        </mat-radio-button>
+                                        <mat-radio-button style="margin-left: 70px;" value="Other">Other
+                                        </mat-radio-button>
+                                    </mat-radio-group>
 
+                                </div>
+                            </div>
+                        </div>
+                    </form>
 
-                <div fxLayout="row" fxLayoutAlign="end end">
-                    <button mat-flat-button color="primary" class="placeorder" (click)="setStep(2)"
-                        *ngIf="step2button && disabled">Continue</button>
-                    <button mat-flat-button color="primary" class="placeorder" (click)="setStep(2);updateadress();"
-                        *ngIf="step2button && !disabled">Update address & Continue</button>
-                </div>
-            </mat-expansion-panel>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <!-- <div fxLayout="row" fxLayoutAlign="end end">
-                <button mat-flat-button color="primary" class="placeorder" (click)="setStep(2)"
-                    *ngIf="step2button && disabled">Continue</button>
-            </div>
-            </mat-expansion-panel> -->
-
-            <!-- ========================================================================================================================== -->
-
-            <mat-expansion-panel hideToggle class="panel" [expanded]="step2" [ngClass.xs]="'panelxs'">
-                <mat-expansion-panel-header>
-                    <mat-panel-title class="paneltitle">
-                        Order summery
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="50px" fxLayout.lt-md="column"
-                    *ngFor="let data of cartitems" class="bookdata">
-                    <div fxLayout="column" fxLayoutGap="15px">
-                        <img class="book" src="/assets/Image 11@2x.png">
+                    <div fxLayout="row" fxLayoutAlign="end end">
+                        <button mat-flat-button color="primary" class="placeorder" (click)="submit()"
+                            >Continue</button>
                     </div>
-                    <div>
-                        <p class="bookname">{{data.product_id.bookName}}</p>
-                        <p class="author">by {{data.product_id.author}}</p>
-                        <p class="actualprice" *ngIf="data.product_id.discountPrice==0">Rs. {{data.product_id.price}}
-                        </p>
-                        <div fxLayout="row" fxLayoutGap="10px">
-                            <p class="actualprice" *ngIf="data.product_id.discountPrice>0">Rs.
-                                {{data.product_id.price-data.product_id.discountPrice}}</p>
-                            <p class="discountPrice" *ngIf="data.product_id.discountPrice>0"><del>Rs.
-                                    {{data.product_id.price}}</del>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel hideToggle class="panel" *ngIf="!displayCheckout" [ngClass.xs]="'panelxs'">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title class="paneltitle">
+                            Order summery
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="50px" fxLayout.lt-md="column"
+                        *ngFor="let data of cartitems" class="bookdata">
+                        <div fxLayout="column" fxLayoutGap="15px">
+                            <img class="book" src="/assets/Image 11@2x.png">
+                        </div>
+                        <div>
+                            <p class="bookname">{{data.product_id.bookName}}</p>
+                            <p class="author">by {{data.product_id.author}}</p>
+                            <p class="actualprice" *ngIf="data.product_id.discountPrice==0">Rs.
+                                {{data.product_id.price}}
                             </p>
+                            <div fxLayout="row" fxLayoutGap="10px">
+                                <p class="actualprice" *ngIf="data.product_id.discountPrice>0">Rs.
+                                    {{data.product_id.price-data.product_id.discountPrice}}</p>
+                                <p class="discountPrice" *ngIf="data.product_id.discountPrice>0"><del>Rs.
+                                        {{data.product_id.price}}</del>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div fxLayout="row" fxLayoutAlign="end end">
-                    <button (click)="checkout()" mat-flat-button color="primary" class="placeorder">Checkout</button>
-                </div>
-            </mat-expansion-panel>
+                    <div fxLayout="row" fxLayoutAlign="end end">
+                        <button (click)="checkout()" mat-flat-button color="primary"
+                            class="placeorder">Checkout</button>
+                    </div>
+                </mat-expansion-panel>
+            </div>
 
         </mat-accordion>
 

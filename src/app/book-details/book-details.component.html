@@ -82,9 +82,22 @@
             </div>
             <div style="background-color:white;" fxLayout="column wrap" fxLayoutAlign="start start" fxLayoutGap="20px"
                 *ngFor="let item of bookStoreArray">
-                <div><b>User:</b>{{item.user_id.fullName}}<br />
-                    <b>Comment:</b>{{item.comment}}<br />
-                    <b>Rating:</b>{{item.rating}}<br />
+
+                <div>
+                    <div style="margin-top: 20px;" fxLayout="row">
+                        <mat-icon>account_circle</mat-icon>
+                        <p class="user">{{item.user_id.fullName}}</p>
+                    </div>
+                    <div>
+                        <p class="getrating" > {{item.rating}}</p>
+                        <div class="fa fa-star checked" ></div>
+
+                    </div>
+                    <div>
+                        <p class="comment">{{item.comment}}</p>
+                    </div>
+
+                    <br>
                 </div>
             </div>
         </div>

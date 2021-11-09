@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip'; 
 import {MatDividerModule} from '@angular/material/divider';
 import {MatRadioModule} from '@angular/material/radio'; 
+import { RatingModule } from 'ng-starrating';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -83,7 +84,8 @@ import { ProfileComponent } from './profile/profile.component';
     MatDividerModule,
     MatOptionModule,
     MatBadgeModule,
-    MatRadioModule
+    MatRadioModule,
+    RatingModule
   ],
   providers: [ 
     AuthguardService,

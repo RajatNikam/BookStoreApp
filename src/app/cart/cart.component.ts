@@ -14,14 +14,15 @@ export class CartComponent implements OnInit {
   cartitems: any;
   count: any;
   ordercount: any;
-  step1: any;
-  step1button: boolean = true;
-  step2: any;
-  step2button: boolean = true;
   fullname: any;
   mobilenumber: any;
   address: any;
   disabled: boolean = true;
+
+  displayButton = true;
+  displayaddresss = true;
+  displayCheckout = true;
+  customerDetailsForm!: FormGroup;
 
   orderlist: any = [];
 
@@ -30,36 +31,27 @@ export class CartComponent implements OnInit {
   alladdress: any;
   addressType: any;
   selectedaddress: any;
-  public userDetails!: FormGroup;
 
-  constructor(private bookservice: BooksService, private routes: Router, private formBuilder: FormBuilder) { }
+  constructor(private bookservice: BooksService, private routes: Router, private formbuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.cartitemslist()
 
-    // this.userDetails = this.formBuilder.group({
-    //   fullName: new FormControl(),
-    //   phone: new FormControl(),
-    //   fullAddress: new FormControl(),
-    //   city: new FormControl(),
-    //   state: new FormControl(),
-    //   addressType: new FormControl(),
-    // })
+    this.customerDetailsForm = this.formbuilder.group({
+      fullName: ['', Validators.required],
+      phoneNumber: ['', [Validators.required]],
+      fullAddress: ['', [Validators.required, Validators.minLength(6)]],
+      city: ['', [Validators.required]],
+      state: ['', Validators.required],
+      addressType: ['', Validators.required]
+
+    })
   }
 
-  // cartitemslist() {
-  //   this.bookservice.getCartItems().subscribe(
-  //     (response: any) => {
-  //       console.log(response);
-  //       this.cartitems = response.result;
-  //       this.count = response.result.length;
-  //       console.log('res', this.cartitems);
-  //       this.fullname = this.cartitems[0].user_id.fullName;
-  //       this.mobilenumber = this.cartitems[0].user_id.phone;
-  //     },
-  //     (error) => console.log(error)
-  //   )
-  // }
+  showadderss() {
+    this.displayButton = false;
+    this.displayaddresss = false;
+  }
 
   cartitemslist() {
     this.bookservice.getCartItems().subscribe(
@@ -68,10 +60,10 @@ export class CartComponent implements OnInit {
         this.cartitems = response.result;
         this.count = response.result.length;
         console.log(this.cartitems);
-        this.fullname = this.cartitems[0].user_id.fullName;
-        this.mobilenumber = this.cartitems[0].user_id.phone;
-        this.address = this.cartitems[0].user_id.address;
-        this.addressdata();
+        // this.fullname = this.cartitems[0].user_id.fullName;
+        // this.mobilenumber = this.cartitems[0].user_id.phone;
+        // this.address = this.cartitems[0].user_id.address;
+        // this.addressdata();
       },
       (error) => console.log(error)
     )
@@ -120,6 +112,24 @@ export class CartComponent implements OnInit {
     )
   }
 
+  submit(){
+    console.log(this.customerDetailsForm.value);
+    this.displayCheckout=false;
+    let reqData={
+      fullName  : this.customerDetailsForm.value.fullName,
+      phonenumber : this.customerDetailsForm.value.phoneNumber,
+      fullAddress  : this.customerDetailsForm.value.fullAddress,
+      city : this.customerDetailsForm.value.city,
+      state : this.customerDetailsForm.value.state,
+      addressType : this.customerDetailsForm.value.addressType,
+      service : "advance"
+    }
+    this.bookservice.customerDetailsService(reqData).subscribe((response:any)=>{
+      console.log("the api" , response);
+      
+    })
+    
+  }
 
 
   countincrease(data: any) {
@@ -156,16 +166,7 @@ export class CartComponent implements OnInit {
     this.cartitemslist()
   }
 
-  setStep(index: any) {
-    if (index == 1) {
-      this.step1 = true;
-      this.step1button = false;
-    }
-    else if (index == 2) {
-      this.step2 = true;
-      this.step2button = false;
-    }
-  }
+ 
 
   removecartitem(data: any) {
     this.bookservice.removecartitem(data._id).subscribe(

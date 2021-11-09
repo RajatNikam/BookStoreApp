@@ -277,3 +277,54 @@
 //    color       : #fe7;
 //    text-shadow : 0 0 20px #952;
 //  }
+
+
+
+// get feedback
+
+.user  {
+   font-size: large;
+   margin-left: 10px;
+}
+
+.comment {
+   margin-left: 35px;
+}
+
+.getrating {
+   margin-left: 35px;
+}
+
+// rating
+
+
+
+ .star {
+    margin-right   : 351px;
+ }
+
+ .small {
+   margin-right   : 151px;
+
+ }
+
+ .star label{
+   font-size   : 20px;
+   color       : #444;
+   padding     : 10px;
+   float       : right;
+   transition  : all 0.2s ease;
+ }
+ 
+ input:not(:checked) ~ label:hover,
+ input:not(:checked) ~ label:hover ~ label{
+   color    : #A03037;
+ }
+ input:checked ~ label{
+   color    : #A03037;
+ }
+
+ .checked {
+   color: orange;
+}
+

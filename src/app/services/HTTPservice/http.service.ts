@@ -49,4 +49,8 @@ export class HttpService {
     }
     return this.http.get(this.BaseUrl + url, options);
   }
+
+  Put(url: any, data: any, headers: any) {
+    return this.http.put(this.BaseUrl + url, data, headers)
+  }
 }
