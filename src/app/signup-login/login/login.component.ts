@@ -40,8 +40,10 @@ export class LoginComponent implements OnInit {
       // localStorage.setItem('token', accessToken)
 
       console.log('token', response.result.accessToken);
-    this.router.navigateByUrl('/dashboard')
+      this.router.navigateByUrl('/dashboard')
 
+      localStorage.setItem('email', this.registerForm.value.email);
+      localStorage.setItem('password', this.registerForm.value.password);
 
     });
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BooksService } from '../services/bookService/books.service';
-import { DataService } from '../services/dataService/data.service';
 
 @Component({
   selector: 'app-book-details',
@@ -26,7 +25,7 @@ export class BookDetailsComponent implements OnInit {
   id: any;
   value: any;
   // item.rating:  any = []; 
-  constructor(private bookService: BooksService, private router: Router, private dataService: DataService) { }
+  constructor(private bookService: BooksService, private router: Router) { }
 
   ngOnInit(): void {
     this.bookId = localStorage.getItem('bookId');

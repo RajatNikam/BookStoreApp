@@ -44,14 +44,19 @@ export class RegisterComponent implements OnInit {
     }
     this.userService.registrationService(payload).subscribe((response: any) => {
       console.log("response", response);
-    console.log("name", response.result.fullName, response.result._id);
+      console.log("name", response.result.fullName, response.result._id);
+
+      localStorage.setItem('fullName', response.result.fullName);
+      localStorage.setItem('email', response.result.email);
+      localStorage.setItem('phoneNumber', response.result.phone);
+      localStorage.setItem('password', response.result.password);
 
     });
 
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
-    console.log("ErroR");
+      console.log("ErroR");
       return;
     }
 

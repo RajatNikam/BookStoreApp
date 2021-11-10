@@ -112,23 +112,27 @@ export class CartComponent implements OnInit {
     )
   }
 
-  submit(){
+  submit() {
     console.log(this.customerDetailsForm.value);
-    this.displayCheckout=false;
-    let reqData={
-      fullName  : this.customerDetailsForm.value.fullName,
-      phonenumber : this.customerDetailsForm.value.phoneNumber,
-      fullAddress  : this.customerDetailsForm.value.fullAddress,
-      city : this.customerDetailsForm.value.city,
-      state : this.customerDetailsForm.value.state,
-      addressType : this.customerDetailsForm.value.addressType,
-      service : "advance"
+    this.displayCheckout = false;
+    let reqData = {
+      fullName: this.customerDetailsForm.value.fullName,
+      phonenumber: this.customerDetailsForm.value.phoneNumber,
+      fullAddress: this.customerDetailsForm.value.fullAddress,
+      city: this.customerDetailsForm.value.city,
+      state: this.customerDetailsForm.value.state,
+      addressType: this.customerDetailsForm.value.addressType,
+      service: "advance"
     }
-    this.bookservice.customerDetailsService(reqData).subscribe((response:any)=>{
-      console.log("the api" , response);
-      
+    this.bookservice.customerDetailsService(reqData).subscribe((response: any) => {
+      console.log("the api", response);
+      localStorage.setItem('fullAddress', this.customerDetailsForm.value.fullAddress);
+      localStorage.setItem('city', this.customerDetailsForm.value.city);
+      localStorage.setItem('state', this.customerDetailsForm.value.state);
+      localStorage.setItem('addressType', this.customerDetailsForm.value.addressType0);
+
     })
-    
+
   }
 
 
@@ -166,7 +170,7 @@ export class CartComponent implements OnInit {
     this.cartitemslist()
   }
 
- 
+
 
   removecartitem(data: any) {
     this.bookservice.removecartitem(data._id).subscribe(

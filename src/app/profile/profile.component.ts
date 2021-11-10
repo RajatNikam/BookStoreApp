@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BooksService } from '../services/bookService/books.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,14 +8,18 @@ import { BooksService } from '../services/bookService/books.service';
 })
 export class ProfileComponent implements OnInit {
 
-
   edit: boolean = true;
-  fullName=localStorage.getItem('fullName');
-  email=localStorage.getItem('email');
-  password=localStorage.getItem('password');
-  number=localStorage.getItem('phoneNumber');
+  disabled: boolean = true;
 
-  constructor(private router: Router, private bookservice: BooksService) { }
+  fullName = "Shubham Nikam";
+  email = localStorage.getItem('email');
+  password = localStorage.getItem('password');
+  number = "8450958860";
+  city = localStorage.getItem('city');
+  fullAddress = localStorage.getItem('fullAddress');
+  state = localStorage.getItem('state');
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -27,6 +30,7 @@ export class ProfileComponent implements OnInit {
 
   onEdit() {
     this.edit = false;
+    this.disabled = false;
   }
 
   onCancel() {

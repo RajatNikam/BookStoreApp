@@ -20,17 +20,53 @@
         </div>
         <div fxLayout="column" fxLayoutAlign="space-around">
             <label for="fullName" style="padding-top: 15px;">Full Name</label>
-            <input id="fullName" type="text" style="height: 25px;" value="{{fullName}}" />
+            <input disabled='true' id="fullName" type="text" style="height: 25px;"  value="{{fullName}}" />
 
             <label for="email" style="padding-top: 15px;">Email Id</label>
-            <input id="email" type="email" style="height: 25px;" value="{{email}}" />
+            <input disabled='true' id="email" type="email" style="height: 25px;" value="{{email}}" />
 
 
             <label for="password" style="padding-top: 15px;">Password</label>
-            <input id="email" type="text" style="height: 25px;" value="**********" />
+            <input disabled='true' id="email" type="text" style="height: 25px;" value="{{password}}" />
 
             <label for="mobileNumber" style="padding-top: 15px;">Mobile Number</label>
-            <input id="mobileNumber" type="text" style="height: 25px;" value="{{number}}" />
+            <input disabled='true' id="mobileNumber" type="text" style="height: 25px;" value="{{number}}" />
+        </div>
+
+
+    </div>
+
+    <div class="personal_info" fxLayout="column" fxLayoutAlign="space-around">
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <div style="font-size: 18px; font-weight: 500; letter-spacing: 0.04em;">
+                Address Details
+            </div>
+            <div>
+                <button mat-button class="edit_button" *ngIf="edit" (click)="onEdit()">Edit</button>
+                <button mat-button class="edit_button" *ngIf="!edit" (click)="onCancel()">Cancel</button>
+            </div>
+            <div style="margin-left: 290px;" *ngIf="!edit">
+                <button mat-raised-button color='primary' class="save_button">Save</button>
+            </div>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="space-around">
+            <label for="fullName" style="padding-top: 15px;">Address</label>
+            <input disabled='true' id="fullName" type="text" style="height: 45px;"  value="{{fullAddress}}"/>
+
+            <div fxLayout="row" fxLayoutAlign="space-between" style="margin-top: 20px;">
+                <div>
+                    <label for="email" style="padding-top: 15px;  width: 250px;">City/Town</label> <br>
+                    <input disabled='true' id="email" type="email" style="height: 35px; width: 250px;" value="{{city}}" />
+                </div>
+    
+                <div class="state">
+                    <label for="password" style="padding-top: 15px;  width: 250px;">State</label> <br>
+                    <input disabled='true' id="email" type="text" style="height: 35px;  width: 250px;" value="{{state}}" />
+                </div>
+            </div>
+
+
+
         </div>
 
 
