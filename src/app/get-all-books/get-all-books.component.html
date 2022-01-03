@@ -22,10 +22,14 @@
         </div>
     </div>
 
+    <!-- <div>
+        <input type="text" [(ngModel)]="filteredString">
+    </div> -->
+
     <div fxLayout="row wrap" style="width:100%;" fxLayoutAlign="start center " fxLayoutGap="-100px">
 
-        <div *ngFor="let book of booksArray" fxLayoutGap.md="40px" fxLayoutGap.sm="100px" fxLayoutGap.xs="60px"
-            [ngClass.sm]="'medium-book-con'" [ngClass.xs]="'small-book'">
+        <div *ngFor="let book of booksArray | filter: searchWord" fxLayoutGap.md="40px" fxLayoutGap.sm="100px"
+            fxLayoutGap.xs="60px" [ngClass.sm]="'medium-book-con'" [ngClass.xs]="'small-book'">
 
 
             <div class="book-con" [ngClass.gt-sm]="'regular-book-con'" [ngClass.xs]="'small-book-con'" fxLayout="column"

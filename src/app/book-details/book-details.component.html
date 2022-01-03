@@ -31,8 +31,8 @@
             </div>
         </div>
         <div style="width: 600px;">
-            <p class="bookname">{{data.bookName}}</p>
-            <p class="author">by {{data.author}}</p>
+            <p class="bookname">{{data?.bookName}}</p>
+            <p class="author">by {{data?.author}}</p>
             <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
                 <div class="ratingbox">
                     <p class="rating">4.5</p>
@@ -41,10 +41,10 @@
                 <p class="ratingno">(20)</p>
             </div>
 
-            <p class="actualprice" *ngIf="data.discountPrice==0">Rs. {{data.price}}</p>
+            <p class="actualprice" *ngIf="data?.discountPrice==0">Rs. {{data?.price}}</p>
             <div fxLayout="row" fxLayoutGap="10px">
-                <p class="actualprice" *ngIf="data.discountPrice>0">Rs. {{data.price-data.discountPrice}}</p>
-                <p class="discountPrice" *ngIf="data.discountPrice>0"><del>Rs. {{data.price}}</del></p>
+                <p class="actualprice" *ngIf="data?.discountPrice>0">Rs. {{data?.price-data?.discountPrice}}</p>
+                <p class="discountPrice" *ngIf="data?.discountPrice>0"><del>Rs. {{data?.price}}</del></p>
             </div>
             <hr>
             <ul class="list">
@@ -60,7 +60,7 @@
             <div class="reviewbox" fxLayout="column">
                 <p class="ratinghead">Overall rating</p>
 
-                <div class="star-widget" [ngClass.xs]="'small'" [(ngModel)]="rating">
+                <div class="star-widget" [ngClass.xs]="'small'" name="fieldName" ngDefaultControl [(ngModel)]="rating">
                     <input type="radio" name="rate" id="rate-5" [(ngModel)]="value" value="5">
                     <label for="rate-5" class="fas fa-star"></label>
                     <input type="radio" name="rate" id="rate-4" [(ngModel)]="value" value="4">
@@ -89,8 +89,8 @@
                         <p class="user">{{item.user_id.fullName}}</p>
                     </div>
                     <div>
-                        <p class="getrating" > {{item.rating}}</p>
-                        <div class="fa fa-star checked" ></div>
+                        <p class="getrating" > Rating: {{item.rating}}</p>
+                        <!-- <div class="fa fa-star checked" ></div> -->
 
                     </div>
                     <div>

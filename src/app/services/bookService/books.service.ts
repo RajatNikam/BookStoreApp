@@ -151,7 +151,6 @@ export class BooksService {
         'Content-Type': 'application/json'
       })
     }
-    console.log(httpAuthOptions);
 
     return this.http.getService(`/bookstore_user/get/feedback/${data.product_id}`, true, httpAuthOptions);
 
@@ -169,19 +168,19 @@ export class BooksService {
       })
     }
     console.log('data', data.product_id);
-    
+
     return this.http.PostService(`/bookstore_user/add/feedback/${data.product_id}`, data, true, options)
   }
 
-  customerDetailsService(data:any){
+  customerDetailsService(data: any) {
     this.token = localStorage.getItem('token')
-    let options={
-      headers : new HttpHeaders({
-        'Content-type' : 'application/json',
-        'x-access-token' : this.token
+    let options = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'x-access-token': this.token
       })
     }
-    return this.http.Put('/bookstore_user/edit_user',data,options)
+    return this.http.Put('/bookstore_user/edit_user', data, options)
 
   }
 

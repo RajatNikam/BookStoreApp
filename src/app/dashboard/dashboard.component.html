@@ -6,10 +6,8 @@
         <span routerLink="/dashboard/get-all-books" style="cursor: pointer;">Bookstore</span>
 
         <span class="searchBar" fxHide.lt-md fxFlex=40 fxLayout="row" fxLayoutAlign="start center">
-            <a href="#">
-                <mat-icon id="icon">search</mat-icon>
-            </a>
-            <input id="searchbar" type="text" placeholder="Search...">
+            <mat-icon id="icon">search</mat-icon>
+            <input id="searchbar" type="text" placeholder="Search..." #search (keyup)="shareSearchWord(search.value)">
         </span>
 
         <span class="example-spacer"></span>
@@ -54,9 +52,10 @@
         </mat-menu>
 
         <span [ngClass.xs]="'iconing'" [ngClass.sm]="'container2'" [ngClass]="'container2'" fxLayout="column"
-            fxLayoutAlign="center center" routerLink="/dashboard/cart" (click)='hide()'>
-            <button mat-icon-button class="profile-button" aria-label="Example cart icon" [matBadgeHidden]=false  matBadge="1"
-                matBadgeColor="accent" matBadgeSize="small" matBadgePosition="below after" (click)="hide()" >
+            fxLayoutAlign="center center" routerLink="/dashboard/cart">
+            <button mat-icon-button class="profile-button" aria-label="Example cart icon"
+                [matBadgeHidden]="badgeVisibility" matBadge="{{countitems}}" matBadgeColor="accent" matBadgeSize="small"
+                matBadgePosition="below after">
                 <img src="/assets/cart.svg" alt="" class="profile-icon" height="20px" width="20px">
             </button>
 
@@ -67,6 +66,8 @@
 </p>
 
 <router-outlet></router-outlet>
+
+<!-- <button (click)="count()">count</button> -->
 
 
 <!-- <footer class="footer" fxLayoutAlign="none center">

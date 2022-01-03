@@ -10,7 +10,7 @@ import { BooksService } from '../services/bookService/books.service';
 export class BookDetailsComponent implements OnInit {
   hidden = false;
   comment: any;
-  rating: any = []; ;
+  rating: any = [];;
   book: any;
   bookId: any;
   data: any;
@@ -47,6 +47,10 @@ export class BookDetailsComponent implements OnInit {
     })
   }
 
+  sum() {
+    return 100;
+  }
+  
   getfeedBack() {
     let data = {
       product_id: this.bookId
@@ -55,19 +59,24 @@ export class BookDetailsComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.bookStoreArray = response.result;
-  })
-}
+      })
+  }
 
 
   bookDetails() {
-    this.bookService.getBooksService().subscribe((res: any) => {
-      res.result.forEach((element: any) => {
-        if (element._id == this.bookId) {
-          this.data = element;
-        }
-      });
-      console.log(this.data);
-    })
+    try {
+      this.bookService.getBooksService().subscribe((res: any) => {
+        res.result.forEach((element: any) => {
+          if (element._id == this.bookId) {
+            this.data = element;
+          }
+        });
+        console.log(this.data);
+      })
+    } catch (error) {
+      console.log( 'aaa', error);
+    }
+
   }
 
   addtobagbuttonhide() {

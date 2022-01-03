@@ -56,10 +56,12 @@ export class CartComponent implements OnInit {
   cartitemslist() {
     this.bookservice.getCartItems().subscribe(
       (response: any) => {
-        console.log(response);
+        console.log('1', response);
+        console.log('2', response.result);
+
         this.cartitems = response.result;
         this.count = response.result.length;
-        console.log(this.cartitems);
+        console.log('books', this.cartitems);
         // this.fullname = this.cartitems[0].user_id.fullName;
         // this.mobilenumber = this.cartitems[0].user_id.phone;
         // this.address = this.cartitems[0].user_id.address;
@@ -140,6 +142,8 @@ export class CartComponent implements OnInit {
     this.ordercount = data.quantityToBuy;
     this.ordercount += 1
     console.log("increased", this.ordercount);
+    console.log("increased2", data.quantityToBuy);
+
 
     this.updateCount(data)
   }

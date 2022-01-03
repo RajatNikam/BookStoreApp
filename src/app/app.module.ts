@@ -42,6 +42,7 @@ import { AuthguardService } from './services/AuthGuardService/authguard.service'
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { OrderplacedComponent } from './orderplaced/orderplaced.component';
 import { ProfileComponent } from './profile/profile.component';
+import { FilterPipe } from './Pipes/filter.pipe';
 
 
 
@@ -58,6 +59,7 @@ import { ProfileComponent } from './profile/profile.component';
     WishlistComponent,
     OrderplacedComponent,
     ProfileComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

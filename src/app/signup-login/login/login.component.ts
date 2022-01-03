@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
   registerForm!: FormGroup;
   submitted = false;
 
+  testVariable: any;
+
   constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
@@ -35,6 +37,7 @@ export class LoginComponent implements OnInit {
       service: this.registerForm.value.service
     }
     this.userService.loginService(payload).subscribe((response: any) => {
+      this.testVariable = response;
       console.log("response", response);
       localStorage.setItem('token', response.result.accessToken)
       // localStorage.setItem('token', accessToken)

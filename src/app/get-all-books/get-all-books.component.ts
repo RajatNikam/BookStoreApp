@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BooksService } from '../services/bookService/books.service';
+import { DashboardComponent } from '../dashboard/dashboard.component';
+import { FilterService } from '../services/pipe/filter.service';
 
 @Component({
   selector: 'app-get-all-books',
@@ -14,12 +16,17 @@ export class GetAllBooksComponent implements OnInit {
   data: any;
   id: any;
   bookcount: any;
+  filteredString: any;
+  searchWord: any;
 
-  constructor(private bookServices: BooksService, private router: Router) { }
+  constructor(private bookServices: BooksService, private router: Router, private dash: FilterService) { }
 
   ngOnInit(): void {
     this.token = localStorage.getItem('token')
     this.getBooks();
+    this.dash.rcvSearch.subscribe((response: any) => {
+      this.searchWord = response;
+    });
   }
 
   getBooks() {
@@ -33,7 +40,7 @@ export class GetAllBooksComponent implements OnInit {
         this.bookcount = response.result.length;
 
         console.log("getBooksArray", this.booksArray);
-
+        console.log("getBooksArray", this.filteredString);
       })
   }
 
@@ -43,7 +50,7 @@ export class GetAllBooksComponent implements OnInit {
   // }
 
   quickView(book: any) {
-    console.log(book._id);
+    console.log('Bookid', book._id);
 
     localStorage.setItem('bookId', book._id);
     this.router.navigateByUrl('/dashboard/book-details')

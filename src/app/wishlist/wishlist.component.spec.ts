@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WishlistComponent } from './wishlist.component';
@@ -8,9 +9,12 @@ describe('WishlistComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WishlistComponent ]
+      imports: [
+        HttpClientModule
+      ],
+      declarations: [WishlistComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +25,15 @@ describe('WishlistComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should create', () => {
+    component.wishlist();
+    expect(component.wishlist).toBeTruthy();
+  });
+
+  it('should create', () => {
+    component.deletewishlistitem('data');
+    expect(component.deletewishlistitem).toBeTruthy();
   });
 });

@@ -25,7 +25,7 @@ export class WishlistComponent implements OnInit {
   }
 
   deletewishlistitem(data: any) {
-    this.bookservice.removewishlistitem(data.product_id._id).subscribe(
+    this.bookservice.removewishlistitem(data.product_id?._id).subscribe(
       (response) => { console.log(response); this.wishlist() },
       (error) => console.log(error)
     )
