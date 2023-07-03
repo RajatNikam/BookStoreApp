@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SignupComponent } from './signup-login/signup/signup.component';
-import { LoginComponent } from './signup-login/login/login.component';
-import { RegisterComponent } from './signup-login/register/register.component';
+import { LoginPageComponent } from './signup-login/login-page/login-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GetAllBooksComponent } from './get-all-books/get-all-books.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
@@ -16,12 +14,12 @@ import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
   // { path: 'login', component: LoginComponent },
   {
-    path: "", component: SignupComponent,
-    children: [
-      { path: '', redirectTo: 'login', pathMatch: 'full' },
-      { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent }
-    ],
+    path: "", component: LoginPageComponent,
+    // children: [
+    //   { path: '', redirectTo: 'login', pathMatch: 'full' },
+    //   { path: 'login', component: LoginComponent },
+    //   { path: 'register', component: SignupComponent }
+    // ],
   },
 
   { path: 'book-details', component: BookDetailsComponent },
